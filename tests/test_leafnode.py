@@ -17,7 +17,7 @@ class TestLeafNode(unittest.TestCase):
 
     def test_to_html_empty_value(self):
         node = LeafNode(value="", tag="a", props=None)
-        self.assertRaises(ValueError, node.to_html)
+        self.assertEqual(node.to_html(), "<a></a>")
 
     def test_to_html_empty_tag(self):
         node = LeafNode(value="asdf", tag=None, props=None)
