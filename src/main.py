@@ -1,5 +1,8 @@
+from textnode import TextNode, TextType
+
+
 def main():
-    print("Hello from staticsitegenerator!")
+    pass
 
 
 if __name__ == "__main__":
