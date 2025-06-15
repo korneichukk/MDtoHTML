@@ -42,3 +42,7 @@ class TestTextNodeToHTMLNode(unittest.TestCase):
             html_node.to_html(),
             '<img src="https://example.com/image.png" alt="Image alt text" >',
         )
+
+
+if __name__ == "__main__":
+    unittest.main()
