@@ -1,6 +1,6 @@
 import unittest
 
-from src.md_links import split_nodes_link, split_nodes_imags
+from src.md_links import split_nodes_link, split_nodes_images
 from src.textnode import TextNode, TextType
 
 
@@ -45,7 +45,7 @@ class TestMarkdownExtract(unittest.TestCase):
             "Here is an image ![alt](https://img.com/pic.png) in text",
             TextType.NORMAL_TEXT,
         )
-        new_nodes = split_nodes_imags([node])
+        new_nodes = split_nodes_images([node])
         self.assertListEqual(
             [
                 TextNode("Here is an image ", TextType.NORMAL_TEXT),
@@ -57,7 +57,7 @@ class TestMarkdownExtract(unittest.TestCase):
 
     def test_split_image_no_images(self):
         node = TextNode("Text with no images at all.", TextType.NORMAL_TEXT)
-        new_nodes = split_nodes_imags([node])
+        new_nodes = split_nodes_images([node])
         self.assertListEqual([node], new_nodes)
 
     def test_link_inside_image_ignored(self):
@@ -65,7 +65,7 @@ class TestMarkdownExtract(unittest.TestCase):
             "Here is a link [text](https://link.com) and an image ![img](https://img.com)",
             TextType.NORMAL_TEXT,
         )
-        image_nodes = split_nodes_imags([node])
+        image_nodes = split_nodes_images([node])
         self.assertListEqual(
             [
                 TextNode(
